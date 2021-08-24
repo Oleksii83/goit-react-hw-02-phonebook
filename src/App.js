@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import './App.css';
 // import shortid from 'shortid';
-import Form from './Component/PhonebookForm/PhonebookForm';
+import ContactForm from './Component/ContactForm/ContactForm';
 // import Search from './Component/SearchForm/SearchForm';
-import Filter from './Component/SearchForm/SearchForm';
-import FilterList from './Component/FilterList/FilterList';
+import Filter from './Component/Filter/Filter';
+import ContactList from './Component/ContactList/ContactList';
 // import { NIL as NIL_UUID } from 'uuid';
 
 class App extends Component {
@@ -44,12 +44,14 @@ class App extends Component {
     return (
       <>
         <div className="Input-form">
-          <h2>Phonebook</h2>
-          <Form onSubmit={this.formSubmitHandler} />
-        </div>
-        <Filter value={this.state.filter} onChange={this.onSearchChange} />
+          <h1>Phonebook</h1>
+          <ContactForm onSubmit={this.formSubmitHandler} />
 
-        <FilterList contacts={this.getFilterSearch()} onDeleteContact={this.onDeleteContact} />
+          <h2 className="SearchName">Contact</h2>
+          <Filter value={this.state.filter} onChange={this.onSearchChange} />
+
+          <ContactList contacts={this.getFilterSearch()} onDeleteContact={this.onDeleteContact} />
+        </div>
       </>
     );
   }

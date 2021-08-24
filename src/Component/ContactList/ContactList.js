@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './FilterList.module.css';
+import s from './ContactList.module.css';
 
 const FilterList = ({ contacts, onDeleteContact }) => (
   <ul className={s.container}>

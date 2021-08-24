@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import shortid from 'shortid';
-import s from './PhonebookForm.module.css';
+import './ContactForm.css';
 
-class Form extends Component {
+class ContactForm extends Component {
   state = {
     contacts: [],
     name: '',
@@ -74,4 +74,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default ContactForm;
