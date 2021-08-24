@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import shortid from 'shortid';
+import s from './PhonebookForm.module.css';
 
 class Form extends Component {
   state = {
@@ -52,7 +53,7 @@ class Form extends Component {
             required
           />
         </label>
-        <label className="TelInputContainer" htmlFor={this.nameInputId}>
+        <label className="TelInputContainer" htmlFor={this.numberInputId}>
           <h3 className="Input-name"> Number </h3>
           <input
             value={this.state.number}
@@ -66,7 +67,7 @@ class Form extends Component {
           />
         </label>
         <button type="submit" className="input-btn">
-          Add cotact
+          Add contact
         </button>
       </form>
     );
