@@ -1,11 +1,10 @@
 import { Component } from 'react';
 import './App.css';
-// import shortid from 'shortid';
+import shortid from 'shortid';
 import ContactForm from './Component/ContactForm/ContactForm';
 // import Search from './Component/SearchForm/SearchForm';
 import Filter from './Component/Filter/Filter';
 import ContactList from './Component/ContactList/ContactList';
-// import { NIL as NIL_UUID } from 'uuid';
 
 class App extends Component {
   state = {
@@ -40,12 +39,27 @@ class App extends Component {
     console.log(data);
   };
 
+  addContact = ({ name, number }) => {
+    const contact = {
+      id: shortid.generate(),
+      name,
+      number,
+    };
+    const equalName = this.state.contacts.find(item => item.name === contact.name);
+
+    if (equalName) return alert(`${contact.name} is already in contacts`);
+
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, contact],
+    }));
+  };
+
   render() {
     return (
       <>
         <div className="Input-form">
           <h1>Phonebook</h1>
-          <ContactForm onSubmit={this.formSubmitHandler} />
+          <ContactForm onSubmit={this.addContact} />
 
           <h2 className="SearchName">Contact</h2>
           <Filter value={this.state.filter} onChange={this.onSearchChange} />
